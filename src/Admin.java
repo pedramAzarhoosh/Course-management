@@ -196,6 +196,13 @@ public class Admin{
             return "An error occurred";
     }
 
+    public void howManyVideos(String name){
+        Course course;
+        if((course = loggedInUser.getCourseByName(name)) != null)
+            System.out.println("this is the number of videos that you should watch to finish this course : " + course.getRemainVideosNumber());
+        else System.out.println("An error occurred");
+    }
+
     public void logout() {
         loggedInUser = null;
         System.out.println("logged out successfully");

@@ -105,6 +105,10 @@ public class Course {
         return description;
     }
 
+    public int getRemainVideosNumber(){
+        return this.quantity - this.amount;
+    }
+
 
     public String showComment(){
         return "This is the comment of this course : " + this.comment;

@@ -203,6 +203,21 @@ public class Admin{
         else System.out.println("An error occurred");
     }
 
+    public void howManyDays(String name) {
+        String finish;
+        String start;
+        int year,month,day;
+        if ((course = loggedInUser.getCourseByName(name)) != null){
+            finish = course.getFinishTime();
+            start = course.getDate();
+            year = Integer.parseInt(finish.substring(0,4)) - Integer.parseInt(start.substring(0,4));
+            month = Integer.parseInt(finish.substring(5,7)) - Integer.parseInt(start.substring(5,7));
+            day = Integer.parseInt(finish.substring(8,10)) - Integer.parseInt(start.substring(8,10));
+            System.out.println(year + "years/ " + month + "months/ " + day + "days");
+        }
+        else System.out.println("An error occurred");
+    }
+
     public void logout() {
         loggedInUser = null;
         System.out.println("logged out successfully");

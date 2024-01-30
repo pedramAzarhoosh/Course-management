@@ -41,6 +41,8 @@ public class UserMenu {
                 System.out.println(admin.getCategory(matcher.group("name")));
             if ((matcher = Menu.getMatcher(command,"^\\s*how many videos do i have to watch for\\s+(?<name>\\S+)\\s*$")) != null)
                 admin.howManyVideos(matcher.group("name"));
+            if ((matcher = Menu.getMatcher(command,"^\\s*how many days remain to finish the\\s+(?<name>\\S+)\\s*$")) != null)
+                admin.howManyDays(matcher.group("name"));
             if(command.matches("^\\s*support & help\\s*$") || command.matches("^\\s*support and help\\s*$"))
                 System.out.println(admin.supportAndHelp());
             if(command.matches("^\\s*recent problems\\s*$"))

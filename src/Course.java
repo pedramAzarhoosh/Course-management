@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
 
 public class Course {
     private double progressRate;
@@ -11,6 +12,7 @@ public class Course {
     private final int quantity;
     private String date;
     private String category;
+    private String finishTime;
     private final Category[] categories = Category.values();
 
     public Course(String name, int quantity) {
@@ -41,7 +43,30 @@ public class Course {
             if(res.equals("valid"))
                 break;
         }
-        //
+        System.out.println("do you want to add a finish time to your course?[Y/N]");
+        if(Menu.getScanner().nextLine().equals("Y")){
+            System.out.println("so enter the finish time >> the format should be like \"yyyy/mm/dd\"");
+            String inp;
+            Matcher matcher;
+            while (true){
+                inp = Menu.getScanner().nextLine();
+                if((matcher = Menu.getMatcher(inp,"^\\s*(?<year>\\d{4})/(?<month>\\d{2})/(?<day>\\d{2})\\s*$")) != null){
+                    if(Integer.parseInt(matcher.group("year")) < Integer.parseInt(date.substring(0,4)))
+                        System.out.println("The finish time is sooner than the start time");
+                    else if(Integer.parseInt(matcher.group("year")) == Integer.parseInt(date.substring(0,4)) && Integer.parseInt(matcher.group("month")) < Integer.parseInt(date.substring(5,7)))
+                        System.out.println("The finish time is sooner than the start time");
+                    else if(Integer.parseInt(matcher.group("year")) == Integer.parseInt(date.substring(0,4)) && Integer.parseInt(matcher.group("month")) == Integer.parseInt(date.substring(5,7)) && Integer.parseInt(matcher.group("day")) < Integer.parseInt(date.substring(8,10)))
+                        System.out.println("The finish time is sooner than the start time");
+                    else {
+                        setFinishTime(inp);
+                        break;
+                    }
+                }
+                else {
+                    System.out.println("invalid format!");
+                }
+            }
+        }
         System.out.println("please enter a description for course then you can know what it is about later");
         setDescription(Menu.getScanner().nextLine());
         System.out.println("do you want to add any comment for this course? [Y/N]");
@@ -107,6 +132,14 @@ public class Course {
 
     public int getRemainVideosNumber(){
         return this.quantity - this.amount;
+    }
+
+    public String getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(String finishTime) {
+        this.finishTime = finishTime;
     }
 
 

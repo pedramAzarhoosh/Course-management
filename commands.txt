@@ -1,0 +1,16 @@
+1.to add a course >>> add course <course name> <amount of videos>
+2.to remove a course >>> remove course <course name>
+3.to see info of a course >>> info of <course name>
+4.to see description of a course >>> show description of <course name>
+5.to add comment for a course >>> add a comment for <course name>,<comment>
+6.to see comment of a course >>> show comment of <course name>
+7.to add your progress rate >>> I see <amount> of the <course name>
+8.to see your progress rate >>> get progress rate of <course name>
+9.to add a course to favorites >>> add <course name> to favorites
+10.to see courses >>> show my courses
+11.to see favorite courses >>> show my favorites
+12.to use support and help >>> support & help || support and help
+13.to see recent problems >>> recent problems
+14.to see how many videos you have to watch >>> how many videos do i have to watch for <course name>
+15.to see how many days you have to finish the course >>> how many days remain to finish the <course name>
+16.to see the category of a course >>> category of <course name>

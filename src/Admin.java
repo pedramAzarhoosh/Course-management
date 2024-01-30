@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Admin{
     public LoginMenu loginMenu;
@@ -206,14 +208,16 @@ public class Admin{
     public void howManyDays(String name) {
         String finish;
         String start;
-        int year,month,day;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if ((course = loggedInUser.getCourseByName(name)) != null){
-            finish = course.getFinishTime();
-            start = course.getDate();
-            year = Integer.parseInt(finish.substring(0,4)) - Integer.parseInt(start.substring(0,4));
-            month = Integer.parseInt(finish.substring(5,7)) - Integer.parseInt(start.substring(5,7));
-            day = Integer.parseInt(finish.substring(8,10)) - Integer.parseInt(start.substring(8,10));
-            System.out.println(year + "years/ " + month + "months/ " + day + "days");
+            finish = course.getFinishTime().substring(0,10);
+            start = course.getDate().substring(0,10);
+            LocalDate date1 = LocalDate.parse(start, formatter);
+            LocalDate date2 = LocalDate.parse(finish, formatter);
+            long daysDifference = date1.until(date2).getDays();
+            long monthsDifference = date1.until(date2).toTotalMonths();
+            long yearsDifference = date1.until(date2).getYears();
+            System.out.println(daysDifference + " days / " + monthsDifference + "months / " + yearsDifference + "years");
         }
         else System.out.println("An error occurred");
     }

@@ -50,7 +50,7 @@ public class Course {
             Matcher matcher;
             while (true){
                 inp = Menu.getScanner().nextLine();
-                if((matcher = Menu.getMatcher(inp,"^\\s*(?<year>\\d{4})/(?<month>\\d{2})/(?<day>\\d{2})\\s*$")) != null){
+                if((matcher = Menu.getMatcher(inp,"^\\s*(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})\\s*$")) != null){
                     if(Integer.parseInt(matcher.group("year")) < Integer.parseInt(date.substring(0,4)))
                         System.out.println("The finish time is sooner than the start time");
                     else if(Integer.parseInt(matcher.group("year")) == Integer.parseInt(date.substring(0,4)) && Integer.parseInt(matcher.group("month")) < Integer.parseInt(date.substring(5,7)))

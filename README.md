@@ -21,6 +21,14 @@ register <your name> <your password> <your email address>
 ```
 login <your name> <your password>
 ```
-### other commands
 `you can find other commands in commands.txt file in this repo.`
+***
+***
+***
+## Easy access to sources
+| Number | Links |
+| ------ | ----------- |
+| 1 |           [Commands](https://github.com/pedramAzarhoosh/Course-management/blob/main/commands.txt)         |
+| 2 | [class diagram](https://github.com/pedramAzarhoosh/Course-management/blob/main/classDiagram.pdf) |
+| 3 | [sequence diagram](https://github.com/pedramAzarhoosh/Course-management/blob/main/sequenceDiagram.zip) |
 

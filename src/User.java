@@ -37,9 +37,6 @@ public class User extends Person {
         return super.getName();
     }
 
-    private String getPass() {
-        return super.getPassword();
-    }
 
     public String getEmail(){return super.getEmail();}
 

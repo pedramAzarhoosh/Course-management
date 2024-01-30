@@ -5,12 +5,11 @@ import java.util.regex.Matcher;
 public class Course {
     private double progressRate;
     private final String name;
-
     private String description;
     private String comment;
     private int amount;
     private final int quantity;
-    private String date;
+    private final String date;
     private String category;
     private String finishTime;
     private final Category[] categories = Category.values();
@@ -52,11 +51,11 @@ public class Course {
                 inp = Menu.getScanner().nextLine();
                 if((matcher = Menu.getMatcher(inp,"^\\s*(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})\\s*$")) != null){
                     if(Integer.parseInt(matcher.group("year")) < Integer.parseInt(date.substring(0,4)))
-                        System.out.println("The finish time is sooner than the start time");
+                        System.out.println("The finish time is sooner than the start time.");
                     else if(Integer.parseInt(matcher.group("year")) == Integer.parseInt(date.substring(0,4)) && Integer.parseInt(matcher.group("month")) < Integer.parseInt(date.substring(5,7)))
-                        System.out.println("The finish time is sooner than the start time");
+                        System.out.println("The finish time is sooner than the start time.");
                     else if(Integer.parseInt(matcher.group("year")) == Integer.parseInt(date.substring(0,4)) && Integer.parseInt(matcher.group("month")) == Integer.parseInt(date.substring(5,7)) && Integer.parseInt(matcher.group("day")) < Integer.parseInt(date.substring(8,10)))
-                        System.out.println("The finish time is sooner than the start time");
+                        System.out.println("The finish time is sooner than the start time.");
                     else {
                         setFinishTime(inp);
                         break;
@@ -67,7 +66,7 @@ public class Course {
                 }
             }
         }
-        System.out.println("please enter a description for course then you can know what it is about later");
+        System.out.println("please enter a description for course then you can know what it is about later.");
         setDescription(Menu.getScanner().nextLine());
         System.out.println("do you want to add any comment for this course? [Y/N]");
         String commentReq = Menu.getScanner().nextLine();

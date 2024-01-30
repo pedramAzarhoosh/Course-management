@@ -26,7 +26,7 @@ public class Admin{
             return "register failed: username already exists";
 
         if (password.length() < 8 || !password.matches(".*[A-Z].*") || !password.matches(".*[a-z].*") || !password.matches(".*[0-9].*")) {
-            return "register failed: password is weak\nthe password should contains at least one capital and small word and one number and the length should be more than 8 character";
+            return "register failed: password is weak\nthe password should contains at least one capital and small word and one number and the length should be more than 8 character.";
         }
 
         if(!email.matches("^.*@gmail\\.com.*$") && !email.matches("^.*@yahoo.com.*$")){
@@ -34,7 +34,7 @@ public class Admin{
         }
 
         User.addUser(username, password,email);
-        return "register successful\nnow you can login in this format >>> login username password";
+        return "register successful\nnow you can login in this format >>> login username password.";
     }
 
     public static String login(String username, String password) {
@@ -64,34 +64,34 @@ public class Admin{
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null) {
             loggedInUser.getCourses().remove(course);
-            return "the course removed successfully";
+            return "the course removed successfully.";
         }
-        return "A problem happend ,maybe the name is wrong";
+        return "A problem happend ,maybe the name is wrong.";
     }
 
     public String addComment(String name,String comment){
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null) {
             course.setComment(comment);
-            return "comment saved successfully";
+            return "comment saved successfully.";
         }
-        return "A problem happend ,maybe the name is wrong";
+        return "A problem happend ,maybe the name is wrong.";
     }
 
     public String getProgressRateOfACourse(String name){
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null)
             return "The progress rate is : " + course.getProgressRate() + "%";
-        return "A problem happend ,maybe the name is wrong";
+        return "A problem happend ,maybe the name is wrong.";
     }
 
     public String addProgressRate(int amount,String name){
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null){
             course.setProgressRate(amount);
-            return "updated successfuly, if you want to see your progress rate type \"get progress rate of <course name>\"";
+            return "updated successfully, if you want to see your progress rate type \"get progress rate of <course name>\"";
         }
-        return "an erroe occured";
+        return "an error occurred.";
     }
 
     public void info(String name){
@@ -108,9 +108,9 @@ public class Admin{
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null) {
             loggedInUser.getFavorites().add(course);
-            return "successfully added to favorites";
+            return "successfully added to favorites.";
         }
-        return "A problem happend ,maybe the name is wrong";
+        return "A problem happend ,maybe the name is wrong.";
     }
 
     public String supportAndHelp(){
@@ -126,7 +126,7 @@ public class Admin{
 
     public void showCourses(){
         if(loggedInUser.getCourses().isEmpty()){
-            System.out.println("you don't have any course");
+            System.out.println("you don't have any course.");
             return;
         }
         int counter = 1;
@@ -140,7 +140,7 @@ public class Admin{
 
     public void showFavorites(){
         if(loggedInUser.getFavorites().isEmpty()){
-            System.out.println("you don't have any favorite course");
+            System.out.println("you don't have any favorite course.");
             return;
         }
         int counter = 1;
@@ -156,14 +156,14 @@ public class Admin{
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null)
             return course.showComment();
-        return "An error occured maybe the course name is wrong";
+        return "An error occured maybe the course name is wrong.";
     }
 
     public String showInfo(String name){
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null)
             return course.showDescription();
-        return "An error occured maybe the course name is wrong";
+        return "An error occured maybe the course name is wrong.";
     }
 
     public void recentProblems(){
@@ -195,14 +195,14 @@ public class Admin{
         if ((course = loggedInUser.getCourseByName(name)) != null)
             return course.getCategory();
         else
-            return "An error occurred";
+            return "An error occurred.";
     }
 
     public void howManyVideos(String name){
         Course course;
         if((course = loggedInUser.getCourseByName(name)) != null)
             System.out.println("this is the number of videos that you should watch to finish this course : " + course.getRemainVideosNumber());
-        else System.out.println("An error occurred");
+        else System.out.println("An error occurred.");
     }
 
     public void howManyDays(String name) {

@@ -7,7 +7,7 @@ public class LoginMenu {
         this.admin = admin;
     }
 
-    public String run() {
+    public void run() {
         Matcher matcher;
         String command, res;
         System.out.println("Hi there, you are in login menu.");
@@ -16,8 +16,13 @@ public class LoginMenu {
         while (true) {
             command = Menu.getScanner().nextLine();
 
-            if (command.matches("^\\s*logout\\s*$"))
-                return "exit";
+            if (command.matches("^\\s*logout\\s*$")) {
+                System.out.println("Are you sure that you want to leave the APP? [Y/N]");
+                if(Menu.getScanner().nextLine().equals("Y")){
+                    return;
+                }
+                else  continue;
+            }
             if ((matcher = Menu.getMatcher(command, "^\\s*register\\s+(?<username>\\S+)\\s+(?<password>\\S+)\\s+(?<email>\\S+)\\s*$")) != null)
                 System.out.println(Admin.register(matcher.group("username"), matcher.group("password"), matcher.group("email")));
             else if ((matcher = Menu.getMatcher(command, "^\\s*login\\s+(?<username>\\S+)\\s+(?<password>\\S+)\\s*$")) != null) {

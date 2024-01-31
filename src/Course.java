@@ -44,7 +44,7 @@ public class Course {
         }
         System.out.println("do you want to add a finish time to your course?[Y/N]");
         if(Menu.getScanner().nextLine().equals("Y")){
-            System.out.println("so enter the finish time >> the format should be like \"yyyy/mm/dd\"");
+            System.out.println("so enter the finish time >> the format should be like \"yyyy-mm-dd\"");
             String inp;
             Matcher matcher;
             while (true){

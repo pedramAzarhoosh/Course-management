@@ -10,7 +10,7 @@ public class UserMenu {
         Matcher matcher;
         String command;
         System.out.println("Now you are in usermenu, what do you want to do?");
-        System.out.println("You can see the commands that you can use with typing \"get commands\".");
+        System.out.println("You can see the commands that you can use with typing \"get commands\", but first you should download it from github and put that in the folder of program");
         while (true){
             command = Menu.getScanner().nextLine();
             if (command.matches("^\\s*back\\s*$")) {

@@ -17,8 +17,7 @@ public class Admin{
     }
 
     public void run(){
-        if(loginMenu.run().equals("exit"))
-            return;
+        loginMenu.run();
     }
 
     public static String register(String username, String password, String email) {
